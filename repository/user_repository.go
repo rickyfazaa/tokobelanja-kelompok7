@@ -22,10 +22,7 @@ func NewUserRepository(db *gorm.DB) *userRepository {
 
 func (r *userRepository) Save(user entity.User) (entity.User, error) {
 	err := r.db.Create(&user).Error
-	if err != nil {
-		return user, err
-	}
-	return user, nil
+	return user, err
 }
 
 func (r *userRepository) FindByEmail(email string) (entity.User, error) {

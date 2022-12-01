@@ -4,6 +4,8 @@ import (
 	"tokobelanja-kelompok7/model/entity"
 	"tokobelanja-kelompok7/model/input"
 	"tokobelanja-kelompok7/repository"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 type UserService interface {
@@ -22,7 +24,20 @@ func NewUserService(userRepository repository.UserRepository) *userService {
 }
 
 func (s *userService) RegisterUser(input input.UserRegisterInput) (entity.User, error) {
-	return entity.User{}, nil
+	passwordHash, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.MinCost)
+	if err != nil {
+		return entity.User{}, err
+	}
+
+	user := entity.User{
+		FullName: input.FullName,
+		Email:    input.Email,
+		Password: string(passwordHash),
+		Role:     "customer",
+		Balance:  0,
+	}
+
+	return s.userRepository.Save(user)
 }
 
 func (s *userService) RegisterAdmin(input input.UserRegisterInput) (entity.User, error) {
