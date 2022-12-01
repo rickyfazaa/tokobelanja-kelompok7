@@ -1,6 +1,6 @@
 package service
 
-import "project4/repository"
+import "tokobelanja-kelompok7/repository"
 
 type TransactionService interface {
 	CreateTransaction(input input.TransactionCreateInput) (entity.Transaction, error)

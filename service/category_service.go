@@ -1,9 +1,9 @@
 package service
 
 import (
-	"project4/model/entity"
-	"project4/model/input"
-	"project4/repository"
+	"tokobelanja-kelompok7/model/entity"
+	"tokobelanja-kelompok7/model/input"
+	"tokobelanja-kelompok7/repository"
 )
 
 type CategoryService interface {
