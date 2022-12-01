@@ -14,7 +14,7 @@ type UserService interface {
 	RegisterUser(input input.UserRegisterInput) (entity.User, error)
 	RegisterAdmin(input input.UserRegisterInput) (entity.User, error)
 	LoginUser(userInput input.UserLoginInput) (string, error)
-	TopUpUser(input input.UserPatchTopUpInput) error
+	TopUpUser(id_user int, input input.UserPatchTopUpInput) (entity.User, error)
 }
 
 type userService struct {
@@ -76,6 +76,22 @@ func (s *userService) LoginUser(userInput input.UserLoginInput) (string, error) 
 	return middleware.GenerateToken(userData.ID, userData.Role)
 }
 
-func (s *userService) TopUpUser(input input.UserPatchTopUpInput) error {
-	return nil
+func (s *userService) TopUpUser(id_user int, input input.UserPatchTopUpInput) (entity.User, error) {
+	userData, err := s.userRepository.FindById(id_user)
+	if err != nil {
+		return entity.User{}, err
+	}
+
+	balance := userData.Balance + input.Balance
+
+	user := entity.User{
+		Balance: balance,
+	}
+
+	_, err = s.userRepository.Update(id_user, user)
+	if err != nil {
+		return entity.User{}, err
+	}
+
+	return s.userRepository.FindById(id_user)
 }

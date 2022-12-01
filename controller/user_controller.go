@@ -2,6 +2,7 @@ package controller
 
 import (
 	"net/http"
+	"strconv"
 	"tokobelanja-kelompok7/helper"
 	"tokobelanja-kelompok7/model/input"
 	"tokobelanja-kelompok7/model/response"
@@ -114,7 +115,51 @@ func (h *userController) LoginUser(c *gin.Context) {
 }
 
 func (h *userController) PatchTopUpUser(c *gin.Context) {
-	// TODO
+	var input input.UserPatchTopUpInput
+
+	id_user := c.MustGet("currentUser").(int)
+
+	err := c.ShouldBindJSON(&input)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	userData, err := h.userService.TopUpUser(id_user, input)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	message := "Your balance has been succcessfully updated to Rp " + strconv.Itoa(userData.Balance)
+	userResponse := response.UserPatchTopUpResponse{
+		Message: message,
+	}
+
+	c.JSON(
+		http.StatusOK,
+		helper.NewResponse(
+			http.StatusOK,
+			"ok",
+			userResponse,
+		),
+	)
 }
 
 func (h *userController) RegisterAdmin(c *gin.Context) {
