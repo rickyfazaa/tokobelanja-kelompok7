@@ -27,11 +27,8 @@ func (r *userRepository) Save(user entity.User) (entity.User, error) {
 
 func (r *userRepository) FindByEmail(email string) (entity.User, error) {
 	var user entity.User
-	err := r.db.Where("email = ?", email).First(&user).Error
-	if err != nil {
-		return user, err
-	}
-	return user, nil
+	err := r.db.Where("email = ?", email).Find(&user).Error
+	return user, err
 }
 
 func (r *userRepository) Update(id_user int, user entity.User) (entity.User, error) {
