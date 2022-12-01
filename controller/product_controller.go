@@ -1,6 +1,10 @@
 package controller
 
 import (
+	"net/http"
+	"tokobelanja-kelompok7/helper"
+	"tokobelanja-kelompok7/model/input"
+	"tokobelanja-kelompok7/model/response"
 	"tokobelanja-kelompok7/service"
 
 	"github.com/gin-gonic/gin"
@@ -15,7 +19,55 @@ func NewProductController(productService service.ProductService) *productControl
 }
 
 func (h *productController) CreateProduct(c *gin.Context) {
-	// TODO
+	var inputBody input.ProductCreateInput
+
+	role_user := c.MustGet("roleUser").(string)
+
+	err := c.ShouldBindJSON(&inputBody)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	productData, err := h.productService.CreateProduct(role_user, inputBody)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	productResponse := response.ProductCreateResponse{
+		ID:         productData.ID,
+		Title:      productData.Title,
+		Price:      productData.Price,
+		Stock:      productData.Stock,
+		CategoryID: productData.CategoryID,
+		CreatedAt:  productData.CreatedAt,
+	}
+
+	c.JSON(
+		http.StatusCreated,
+		helper.NewResponse(
+			http.StatusCreated,
+			"created",
+			productResponse,
+		),
+	)
 }
 
 func (h *productController) GetAllProducts(c *gin.Context) {
