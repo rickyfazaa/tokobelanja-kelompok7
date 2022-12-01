@@ -71,7 +71,44 @@ func (h *productController) CreateProduct(c *gin.Context) {
 }
 
 func (h *productController) GetAllProducts(c *gin.Context) {
-	// TODO
+	var allProducts []response.ProductGetResponse
+
+	_ = c.MustGet("currentUser").(int)
+
+	productsData, err := h.productService.GetAllProducts()
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	for _, product := range productsData {
+		allProductsTmp := response.ProductGetResponse{
+			ID:         product.ID,
+			Title:      product.Title,
+			Price:      product.Price,
+			Stock:      product.Stock,
+			CategoryID: product.CategoryID,
+			CreatedAt:  product.CreatedAt,
+		}
+		allProducts = append(allProducts, allProductsTmp)
+	}
+
+	c.JSON(
+		http.StatusOK,
+		helper.NewResponse(
+			http.StatusOK,
+			"ok",
+			allProducts,
+		),
+	)
 }
 
 func (h *productController) UpdateProduct(c *gin.Context) {

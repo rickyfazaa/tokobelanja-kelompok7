@@ -36,10 +36,7 @@ func (r *productRepository) FindCategoryByCategoryId(category_id int) (entity.Ca
 func (r *productRepository) FindAll() ([]entity.Product, error) {
 	var products []entity.Product
 	err := r.db.Preload("Category").Find(&products).Error
-	if err != nil {
-		return products, err
-	}
-	return products, nil
+	return products, err
 }
 
 func (r *productRepository) Update(id_product int, product entity.Product) (entity.Product, error) {

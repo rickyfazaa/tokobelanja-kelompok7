@@ -46,7 +46,7 @@ func (s *productService) CreateProduct(role_user string, inputBody input.Product
 }
 
 func (s *productService) GetAllProducts() ([]entity.Product, error) {
-	return []entity.Product{}, nil
+	return s.productRepository.FindAll()
 }
 
 func (s *productService) UpdateProduct(id_product int, input input.ProductUpdateInput) (entity.Product, error) {
