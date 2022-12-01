@@ -22,17 +22,17 @@ func NewProductService(productRepository repository.ProductRepository) *productS
 }
 
 func (s *productService) CreateProduct(input input.ProductCreateInput) (entity.Product, error) {
-	// TODO
+	return entity.Product{}, nil
 }
 
 func (s *productService) GetAllProducts() ([]entity.Product, error) {
-	// TODO
+	return []entity.Product{}, nil
 }
 
 func (s *productService) UpdateProduct(id_product int, input input.ProductUpdateInput) (entity.Product, error) {
-	// TODO
+	return entity.Product{}, nil
 }
 
 func (s *productService) DeleteProduct(id_product int) error {
-	// TODO
+	return nil
 }

@@ -22,17 +22,17 @@ func NewCategoryService(categoryRepository repository.CategoryRepository) *categ
 }
 
 func (s *categoryService) CreateCategory(input input.CategoryCreateInput) (entity.Category, error) {
-	// TODO
+	return entity.Category{}, nil
 }
 
 func (s *categoryService) GetAllCategories() ([]entity.Category, error) {
-	// TODO
+	return []entity.Category{}, nil
 }
 
 func (s *categoryService) PatchCategory(role_user string, id_category int, input input.CategoryPatchInput) (entity.Category, error) {
-	// TODO
+	return entity.Category{}, nil
 }
 
 func (s *categoryService) DeleteCategory(role_user string, id_category int) error {
-	// TODO
+	return nil
 }

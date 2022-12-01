@@ -22,17 +22,17 @@ func NewUserService(userRepository repository.UserRepository) *userService {
 }
 
 func (s *userService) RegisterUser(input input.UserRegisterInput) (entity.User, error) {
-	// TODO
+	return entity.User{}, nil
 }
 
 func (s *userService) RegisterAdmin(input input.UserRegisterInput) (entity.User, error) {
-	// TODO
+	return entity.User{}, nil
 }
 
 func (s *userService) LoginUser(input input.UserLoginInput) (string, error) {
-	// TODO
+	return "", nil
 }
 
 func (s *userService) TopUpUser(input input.UserPatchTopUpInput) error {
-	// TODO
+	return nil
 }

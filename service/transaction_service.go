@@ -1,11 +1,15 @@
 package service
 
-import "tokobelanja-kelompok7/repository"
+import (
+	"tokobelanja-kelompok7/model/entity"
+	"tokobelanja-kelompok7/model/input"
+	"tokobelanja-kelompok7/repository"
+)
 
 type TransactionService interface {
-	CreateTransaction(input input.TransactionCreateInput) (entity.Transaction, error)
-	GetUserTransactions(id_user int) ([]entity.Transaction, error)
-	GetAllTransactions() ([]entity.Transaction, error)
+	CreateTransaction(dataInput input.TransactionHistoryCreateInput) (entity.TransactionHistory, error)
+	GetUserTransactions(id_user int) ([]entity.TransactionHistory, error)
+	GetAllTransactions() ([]entity.TransactionHistory, error)
 }
 
 type transactionService struct {
@@ -16,14 +20,14 @@ func NewTransactionService(transactionRepository repository.TransactionRepositor
 	return &transactionService{transactionRepository}
 }
 
-func (s *transactionService) CreateTransaction(input input.TransactionCreateInput) (entity.Transaction, error) {
-	// TODO
+func (s *transactionService) CreateTransaction(input input.TransactionHistoryCreateInput) (entity.TransactionHistory, error) {
+	return entity.TransactionHistory{}, nil
 }
 
-func (s *transactionService) GetUserTransactions(id_user int) ([]entity.Transaction, error) {
-	// TODO
+func (s *transactionService) GetUserTransactions(id_user int) ([]entity.TransactionHistory, error) {
+	return []entity.TransactionHistory{}, nil
 }
 
-func (s *transactionService) GetAllTransactions() ([]entity.Transaction, error) {
-	// TODO
+func (s *transactionService) GetAllTransactions() ([]entity.TransactionHistory, error) {
+	return []entity.TransactionHistory{}, nil
 }
