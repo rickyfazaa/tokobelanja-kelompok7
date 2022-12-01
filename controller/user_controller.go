@@ -77,5 +77,51 @@ func (h *userController) PatchTopUpUser(c *gin.Context) {
 }
 
 func (h *userController) RegisterAdmin(c *gin.Context) {
-	// TODO
+	var input input.UserRegisterInput
+
+	err := c.ShouldBindJSON(&input)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	userData, err := h.userService.RegisterAdmin(input)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	userResponse := response.UserRegisterResponse{
+		ID:        userData.ID,
+		FullName:  userData.FullName,
+		Email:     userData.Email,
+		Password:  userData.Password,
+		Balance:   userData.Balance,
+		CreatedAt: userData.CreatedAt,
+	}
+
+	c.JSON(
+		http.StatusCreated,
+		helper.NewResponse(
+			http.StatusCreated,
+			"created",
+			userResponse,
+		),
+	)
 }

@@ -41,7 +41,20 @@ func (s *userService) RegisterUser(input input.UserRegisterInput) (entity.User, 
 }
 
 func (s *userService) RegisterAdmin(input input.UserRegisterInput) (entity.User, error) {
-	return entity.User{}, nil
+	passwordHash, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.MinCost)
+	if err != nil {
+		return entity.User{}, err
+	}
+
+	user := entity.User{
+		FullName: input.FullName,
+		Email:    input.Email,
+		Password: string(passwordHash),
+		Role:     "admin",
+		Balance:  0,
+	}
+
+	return s.userRepository.Save(user)
 }
 
 func (s *userService) LoginUser(input input.UserLoginInput) (string, error) {
