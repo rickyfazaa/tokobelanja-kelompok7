@@ -10,6 +10,7 @@ import (
 type CategoryService interface {
 	CreateCategory(role_user string, input input.CategoryCreateInput) (entity.Category, error)
 	GetAllCategories() ([]entity.Category, error)
+	GetProductsByCategoryID(id_category int) ([]entity.Product, error)
 	PatchCategory(role_user string, id_category int, input input.CategoryPatchInput) (entity.Category, error)
 	DeleteCategory(role_user string, id_category int) error
 }
@@ -36,7 +37,11 @@ func (s *categoryService) CreateCategory(role_user string, input input.CategoryC
 }
 
 func (s *categoryService) GetAllCategories() ([]entity.Category, error) {
-	return []entity.Category{}, nil
+	return s.categoryRepository.FindAll()
+}
+
+func (s *categoryService) GetProductsByCategoryID(id_category int) ([]entity.Product, error) {
+	return s.categoryRepository.FindAllProductsByCategoryID(id_category)
 }
 
 func (s *categoryService) PatchCategory(role_user string, id_category int, input input.CategoryPatchInput) (entity.Category, error) {
