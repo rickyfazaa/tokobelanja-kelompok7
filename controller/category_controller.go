@@ -139,7 +139,70 @@ func (h *categoryController) GetAllCategories(c *gin.Context) {
 }
 
 func (h *categoryController) PatchCategory(c *gin.Context) {
-	// TODO
+	var (
+		inputBody input.CategoryPatchInput
+		uri       input.CategoryIdUri
+	)
+
+	role_user := c.MustGet("roleUser").(string)
+
+	err := c.ShouldBindJSON(&inputBody)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	err = c.ShouldBindUri(&uri)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	categoryData, err := h.categoryService.PatchCategory(role_user, uri.ID, inputBody)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	categoryResponse := response.CategoryPatchResponse{
+		ID:                categoryData.ID,
+		Type:              categoryData.Type,
+		SoldProductAmount: categoryData.SoldProductAmount,
+		UpdatedAt:         categoryData.UpdatedAt,
+	}
+
+	c.JSON(
+		http.StatusOK,
+		helper.NewResponse(
+			http.StatusOK,
+			"ok",
+			categoryResponse,
+		),
+	)
 }
 
 func (h *categoryController) DeleteCategory(c *gin.Context) {

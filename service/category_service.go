@@ -45,7 +45,28 @@ func (s *categoryService) GetProductsByCategoryID(id_category int) ([]entity.Pro
 }
 
 func (s *categoryService) PatchCategory(role_user string, id_category int, input input.CategoryPatchInput) (entity.Category, error) {
-	return entity.Category{}, nil
+	if role_user != "admin" {
+		return entity.Category{}, errors.New("you are not admin")
+	}
+
+	category := entity.Category{
+		Type: input.Type,
+	}
+
+	_, err := s.categoryRepository.Update(id_category, category)
+	if err != nil {
+		return entity.Category{}, err
+	}
+
+	categoryData, err := s.categoryRepository.FindById(id_category)
+	if err != nil {
+		return entity.Category{}, err
+	}
+	if categoryData.ID == 0 {
+		return entity.Category{}, errors.New("category not found")
+	}
+
+	return categoryData, nil
 }
 
 func (s *categoryService) DeleteCategory(role_user string, id_category int) error {
