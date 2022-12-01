@@ -70,5 +70,17 @@ func (s *categoryService) PatchCategory(role_user string, id_category int, input
 }
 
 func (s *categoryService) DeleteCategory(role_user string, id_category int) error {
-	return nil
+	if role_user != "admin" {
+		return errors.New("you are not admin")
+	}
+
+	categoryData, err := s.categoryRepository.FindById(id_category)
+	if err != nil {
+		return err
+	}
+	if categoryData.ID == 0 {
+		return errors.New("category not found")
+	}
+
+	return s.categoryRepository.Delete(id_category)
 }
