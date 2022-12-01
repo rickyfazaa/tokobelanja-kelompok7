@@ -23,10 +23,7 @@ func NewCategoryRepository(db *gorm.DB) *categoryRepository {
 
 func (r *categoryRepository) Save(category entity.Category) (entity.Category, error) {
 	err := r.db.Create(&category).Error
-	if err != nil {
-		return category, err
-	}
-	return category, nil
+	return category, err
 }
 
 func (r *categoryRepository) FindAll() ([]entity.Category, error) {
