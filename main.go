@@ -2,11 +2,11 @@ package main
 
 import (
 	"os"
-	"project4/config"
-	"project4/controller"
-	"project4/middleware"
-	"project4/repository"
-	"project4/service"
+	"tokobelanja-kelompok7/config"
+	"tokobelanja-kelompok7/controller"
+	"tokobelanja-kelompok7/middleware"
+	"tokobelanja-kelompok7/repository"
+	"tokobelanja-kelompok7/service"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"

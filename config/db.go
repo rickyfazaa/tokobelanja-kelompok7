@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 	"log"
-	"project4/model/entity"
+	"tokobelanja-kelompok7/model/entity"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

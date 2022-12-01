@@ -1,4 +1,4 @@
-module project4
+module tokobelanja-kelompok7
 
 go 1.19
 

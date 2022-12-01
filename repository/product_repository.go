@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"project4/model/entity"
+	"tokobelanja-kelompok7/model/entity"
 
 	"gorm.io/gorm"
 )

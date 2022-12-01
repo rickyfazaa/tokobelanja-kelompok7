@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"project4/service"
+	"tokobelanja-kelompok7/service"
 
 	"github.com/gin-gonic/gin"
 )
