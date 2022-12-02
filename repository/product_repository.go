@@ -12,7 +12,7 @@ type ProductRepository interface {
 	FindAll() ([]entity.Product, error)
 	FindById(id_product int) (entity.Product, error)
 	Update(id_product int, product entity.Product) (entity.Product, error)
-	Delete(id_product int, product entity.Product) error
+	Delete(id_product int) error
 }
 
 type productRepository struct {
@@ -51,10 +51,8 @@ func (r *productRepository) Update(id_product int, product entity.Product) (enti
 	return product, err
 }
 
-func (r *productRepository) Delete(id_product int, product entity.Product) error {
+func (r *productRepository) Delete(id_product int) error {
+	var product entity.Product
 	err := r.db.Where("id = ?", id_product).Delete(&product).Error
-	if err != nil {
-		return err
-	}
-	return nil
+	return err
 }

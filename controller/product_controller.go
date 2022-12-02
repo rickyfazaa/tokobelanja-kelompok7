@@ -185,7 +185,50 @@ func (h *productController) UpdateProduct(c *gin.Context) {
 }
 
 func (h *productController) DeleteProduct(c *gin.Context) {
-	// TODO
+	var inputUri input.ProductIdUri
+
+	role_user := c.MustGet("roleUser").(string)
+
+	err := c.ShouldBindUri(&inputUri)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	err = h.productService.DeleteProduct(role_user, inputUri.ID)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	productResponse := response.ProductDeleteResponse{
+		Message: "Product has been successfully deleted",
+	}
+
+	c.JSON(
+		http.StatusOK,
+		helper.NewResponse(
+			http.StatusOK,
+			"ok",
+			productResponse,
+		),
+	)
 }
 
 func ToRupiah(price int) string {

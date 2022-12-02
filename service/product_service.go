@@ -11,7 +11,7 @@ type ProductService interface {
 	CreateProduct(role_user string, inputBody input.ProductCreateInput) (entity.Product, error)
 	GetAllProducts() ([]entity.Product, error)
 	UpdateProduct(role_user string, id_product int, input input.ProductUpdateInput) (entity.Product, error)
-	DeleteProduct(id_product int) error
+	DeleteProduct(role_user string, id_product int) error
 }
 
 type productService struct {
@@ -85,6 +85,18 @@ func (s *productService) UpdateProduct(role_user string, id_product int, input i
 	return s.productRepository.FindById(id_product)
 }
 
-func (s *productService) DeleteProduct(id_product int) error {
-	return nil
+func (s *productService) DeleteProduct(role_user string, id_product int) error {
+	if role_user != "admin" {
+		return errors.New("you are not admin")
+	}
+
+	productData, err := s.productRepository.FindById(id_product)
+	if err != nil {
+		return err
+	}
+	if productData.ID == 0 {
+		return errors.New("product not found")
+	}
+
+	return s.productRepository.Delete(id_product)
 }
