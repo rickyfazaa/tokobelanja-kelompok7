@@ -10,6 +10,7 @@ type ProductRepository interface {
 	Save(product entity.Product) (entity.Product, error)
 	FindCategoryByCategoryId(category_id int) (entity.Category, error)
 	FindAll() ([]entity.Product, error)
+	FindById(id_product int) (entity.Product, error)
 	Update(id_product int, product entity.Product) (entity.Product, error)
 	Delete(id_product int, product entity.Product) error
 }
@@ -39,12 +40,15 @@ func (r *productRepository) FindAll() ([]entity.Product, error) {
 	return products, err
 }
 
+func (r *productRepository) FindById(id_product int) (entity.Product, error) {
+	var product entity.Product
+	err := r.db.Preload("Category").Where("id = ?", id_product).Find(&product).Error
+	return product, err
+}
+
 func (r *productRepository) Update(id_product int, product entity.Product) (entity.Product, error) {
 	err := r.db.Preload("Category").Where("id = ?", id_product).Updates(&product).Error
-	if err != nil {
-		return product, err
-	}
-	return product, nil
+	return product, err
 }
 
 func (r *productRepository) Delete(id_product int, product entity.Product) error {

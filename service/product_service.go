@@ -10,7 +10,7 @@ import (
 type ProductService interface {
 	CreateProduct(role_user string, inputBody input.ProductCreateInput) (entity.Product, error)
 	GetAllProducts() ([]entity.Product, error)
-	UpdateProduct(id_product int, input input.ProductUpdateInput) (entity.Product, error)
+	UpdateProduct(role_user string, id_product int, input input.ProductUpdateInput) (entity.Product, error)
 	DeleteProduct(id_product int) error
 }
 
@@ -49,8 +49,40 @@ func (s *productService) GetAllProducts() ([]entity.Product, error) {
 	return s.productRepository.FindAll()
 }
 
-func (s *productService) UpdateProduct(id_product int, input input.ProductUpdateInput) (entity.Product, error) {
-	return entity.Product{}, nil
+func (s *productService) UpdateProduct(role_user string, id_product int, input input.ProductUpdateInput) (entity.Product, error) {
+	if role_user != "admin" {
+		return entity.Product{}, errors.New("you are not admin")
+	}
+
+	productData, err := s.productRepository.FindById(id_product)
+	if err != nil {
+		return entity.Product{}, err
+	}
+	if productData.ID == 0 {
+		return entity.Product{}, errors.New("product not found")
+	}
+
+	categoryData, err := s.productRepository.FindCategoryByCategoryId(input.CategoryID)
+	if err != nil {
+		return entity.Product{}, err
+	}
+	if categoryData.ID == 0 {
+		return entity.Product{}, errors.New("category not found")
+	}
+
+	product := entity.Product{
+		Title:      input.Title,
+		Price:      input.Price,
+		Stock:      input.Stock,
+		CategoryID: input.CategoryID,
+	}
+
+	_, err = s.productRepository.Update(id_product, product)
+	if err != nil {
+		return entity.Product{}, err
+	}
+
+	return s.productRepository.FindById(id_product)
 }
 
 func (s *productService) DeleteProduct(id_product int) error {

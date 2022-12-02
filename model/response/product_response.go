@@ -21,9 +21,13 @@ type ProductGetResponse struct {
 }
 
 type ProductUpdateResponse struct {
+	Product ProductUpdate `json:"product"`
+}
+
+type ProductUpdate struct {
 	ID         int       `json:"id"`
 	Title      string    `json:"title"`
-	Price      int       `json:"price"`
+	Price      string    `json:"price"`
 	Stock      int       `json:"stock"`
 	CategoryID int       `json:"category_id"`
 	CreatedAt  time.Time `json:"created_at"`

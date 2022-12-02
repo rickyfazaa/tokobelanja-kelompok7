@@ -2,6 +2,7 @@ package controller
 
 import (
 	"net/http"
+	"strconv"
 	"tokobelanja-kelompok7/helper"
 	"tokobelanja-kelompok7/model/input"
 	"tokobelanja-kelompok7/model/response"
@@ -112,9 +113,91 @@ func (h *productController) GetAllProducts(c *gin.Context) {
 }
 
 func (h *productController) UpdateProduct(c *gin.Context) {
-	// TODO
+	var (
+		inputBody input.ProductUpdateInput
+		inputUri  input.ProductIdUri
+	)
+
+	role_user := c.MustGet("roleUser").(string)
+
+	err := c.ShouldBindJSON(&inputBody)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	err = c.ShouldBindUri(&inputUri)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	productData, err := h.productService.UpdateProduct(role_user, inputUri.ID, inputBody)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	productResponse := response.ProductUpdateResponse{
+		Product: response.ProductUpdate{
+			ID:         productData.ID,
+			Title:      productData.Title,
+			Price:      ToRupiah(productData.Price),
+			Stock:      productData.Stock,
+			CategoryID: productData.CategoryID,
+			CreatedAt:  productData.CreatedAt,
+			UpdatedAt:  productData.UpdatedAt,
+		},
+	}
+
+	c.JSON(
+		http.StatusOK,
+		helper.NewResponse(
+			http.StatusOK,
+			"ok",
+			productResponse,
+		),
+	)
 }
 
 func (h *productController) DeleteProduct(c *gin.Context) {
 	// TODO
+}
+
+func ToRupiah(price int) string {
+	var rupiah string
+	var num = []rune(strconv.Itoa(price))
+	qty := len(num)
+	for i := 0; i < qty; i++ {
+		if i%3 == 0 && i != 0 {
+			rupiah = string(num[qty-i-1]) + "." + rupiah
+		} else {
+			rupiah = string(num[qty-i-1]) + rupiah
+		}
+	}
+	return "Rp. " + rupiah
 }
