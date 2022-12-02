@@ -9,7 +9,7 @@ import (
 
 type CategoryService interface {
 	CreateCategory(role_user string, input input.CategoryCreateInput) (entity.Category, error)
-	GetAllCategories() ([]entity.Category, error)
+	GetAllCategories(role_user string) ([]entity.Category, error)
 	GetProductsByCategoryID(id_category int) ([]entity.Product, error)
 	PatchCategory(role_user string, id_category int, input input.CategoryPatchInput) (entity.Category, error)
 	DeleteCategory(role_user string, id_category int) error
@@ -36,7 +36,11 @@ func (s *categoryService) CreateCategory(role_user string, input input.CategoryC
 	return s.categoryRepository.Save(category)
 }
 
-func (s *categoryService) GetAllCategories() ([]entity.Category, error) {
+func (s *categoryService) GetAllCategories(role_user string) ([]entity.Category, error) {
+	if role_user != "admin" {
+		return []entity.Category{}, errors.New("you are not admin")
+	}
+
 	return s.categoryRepository.FindAll()
 }
 

@@ -14,6 +14,6 @@ type ProductUpdateInput struct {
 	CategoryID int    `json:"category_id" binding:"required"`
 }
 
-type ProductIDUri struct {
+type ProductIdUri struct {
 	ID int `uri:"id" binding:"required"`
 }

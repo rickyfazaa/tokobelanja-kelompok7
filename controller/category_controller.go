@@ -74,9 +74,9 @@ func (h *categoryController) GetAllCategories(c *gin.Context) {
 		allCategories []response.CategoryGetResponse
 	)
 
-	_ = c.MustGet("currentUser").(int)
+	role_user := c.MustGet("roleUser").(string)
 
-	categoryData, err := h.categoryService.GetAllCategories()
+	categoryData, err := h.categoryService.GetAllCategories(role_user)
 	if err != nil {
 		errors := helper.GetErrorData(err)
 		c.JSON(
