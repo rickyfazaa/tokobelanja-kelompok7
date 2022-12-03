@@ -41,8 +41,5 @@ func (r *transactionRepository) FindByUserID(id_user int) ([]entity.TransactionH
 func (r *transactionRepository) FindAll() ([]entity.TransactionHistory, error) {
 	var transactions []entity.TransactionHistory
 	err := r.db.Preload("Product").Preload("User").Find(&transactions).Error
-	if err != nil {
-		return transactions, err
-	}
-	return transactions, nil
+	return transactions, err
 }

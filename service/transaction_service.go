@@ -10,7 +10,7 @@ import (
 type TransactionService interface {
 	CreateTransaction(id_user int, dataInput input.TransactionHistoryCreateInput) (entity.TransactionHistory, error)
 	GetUserTransactions(id_user int) ([]entity.TransactionHistory, error)
-	GetAllTransactions() ([]entity.TransactionHistory, error)
+	GetAllTransactions(role_user string) ([]entity.TransactionHistory, error)
 }
 
 type transactionService struct {
@@ -87,6 +87,10 @@ func (s *transactionService) GetUserTransactions(id_user int) ([]entity.Transact
 	return s.transactionRepository.FindByUserID(id_user)
 }
 
-func (s *transactionService) GetAllTransactions() ([]entity.TransactionHistory, error) {
-	return []entity.TransactionHistory{}, nil
+func (s *transactionService) GetAllTransactions(role_user string) ([]entity.TransactionHistory, error) {
+	if role_user != "admin" {
+		return []entity.TransactionHistory{}, errors.New("you are not admin")
+	}
+
+	return s.transactionRepository.FindAll()
 }
