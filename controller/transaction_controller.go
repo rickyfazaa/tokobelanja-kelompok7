@@ -71,7 +71,52 @@ func (h *transactionController) CreateTransaction(c *gin.Context) {
 }
 
 func (h *transactionController) GetUserTransactions(c *gin.Context) {
-	// TODO
+	var allTransactions []response.TransactionHistoryGetUserResponse
+
+	id_user := c.MustGet("currentUser").(int)
+
+	transactionData, err := h.transactionService.GetUserTransactions(id_user)
+	if err != nil {
+		errors := helper.GetErrorData(err)
+		c.JSON(
+			http.StatusUnprocessableEntity,
+			helper.NewErrorResponse(
+				http.StatusUnprocessableEntity,
+				"failed",
+				errors,
+			),
+		)
+		return
+	}
+
+	for _, transaction := range transactionData {
+		allTransactionsTmp := response.TransactionHistoryGetUserResponse{
+			ID:         transaction.ID,
+			ProductID:  transaction.ProductID,
+			UserID:     transaction.UserID,
+			Quantity:   transaction.Quantity,
+			TotalPrice: transaction.TotalPrice,
+			Product: response.TransactionProduct{
+				ID:         transaction.Product.ID,
+				Title:      transaction.Product.Title,
+				Price:      transaction.Product.Price,
+				Stock:      transaction.Product.Stock,
+				CategoryID: transaction.Product.CategoryID,
+				CreatedAt:  transaction.Product.CreatedAt,
+				UpdatedAt:  transaction.Product.UpdatedAt,
+			},
+		}
+		allTransactions = append(allTransactions, allTransactionsTmp)
+	}
+
+	c.JSON(
+		http.StatusOK,
+		helper.NewResponse(
+			http.StatusOK,
+			"ok",
+			allTransactions,
+		),
+	)
 }
 
 func (h *transactionController) GetAllTransactions(c *gin.Context) {

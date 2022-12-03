@@ -84,7 +84,7 @@ func (s *transactionService) CreateTransaction(id_user int, input input.Transact
 }
 
 func (s *transactionService) GetUserTransactions(id_user int) ([]entity.TransactionHistory, error) {
-	return []entity.TransactionHistory{}, nil
+	return s.transactionRepository.FindByUserID(id_user)
 }
 
 func (s *transactionService) GetAllTransactions() ([]entity.TransactionHistory, error) {
