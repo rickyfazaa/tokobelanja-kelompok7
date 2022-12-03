@@ -37,7 +37,7 @@ func main() {
 	productController := controller.NewProductController(productService)
 
 	transactionRepository := repository.NewTransactionRepository(db)
-	transactionService := service.NewTransactionService(transactionRepository)
+	transactionService := service.NewTransactionService(transactionRepository, userRepository, productRepository, categoryRepository)
 	transactionController := controller.NewTransactionController(transactionService)
 
 	router := gin.Default()

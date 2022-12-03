@@ -8,6 +8,7 @@ import (
 
 type TransactionRepository interface {
 	Save(transaction entity.TransactionHistory) (entity.TransactionHistory, error)
+	FindById(id int) (entity.TransactionHistory, error)
 	FindByUserID(id_user int) ([]entity.TransactionHistory, error)
 	FindAll() ([]entity.TransactionHistory, error)
 }
@@ -22,26 +23,23 @@ func NewTransactionRepository(db *gorm.DB) *transactionRepository {
 
 func (r *transactionRepository) Save(transaction entity.TransactionHistory) (entity.TransactionHistory, error) {
 	err := r.db.Preload("Product").Preload("User").Create(&transaction).Error
-	if err != nil {
-		return transaction, err
-	}
-	return transaction, nil
+	return transaction, err
+}
+
+func (r *transactionRepository) FindById(id int) (entity.TransactionHistory, error) {
+	var transaction entity.TransactionHistory
+	err := r.db.Preload("Product").Preload("User").Where("id = ?", id).Find(&transaction).Error
+	return transaction, err
 }
 
 func (r *transactionRepository) FindByUserID(id_user int) ([]entity.TransactionHistory, error) {
 	var transactions []entity.TransactionHistory
-	err := r.db.Preload("Product").Preload("User").Where("id_user = ?", id_user).Find(&transactions).Error
-	if err != nil {
-		return transactions, err
-	}
-	return transactions, nil
+	err := r.db.Preload("Product").Preload("User").Where("user_id = ?", id_user).Find(&transactions).Error
+	return transactions, err
 }
 
 func (r *transactionRepository) FindAll() ([]entity.TransactionHistory, error) {
 	var transactions []entity.TransactionHistory
 	err := r.db.Preload("Product").Preload("User").Find(&transactions).Error
-	if err != nil {
-		return transactions, err
-	}
-	return transactions, nil
+	return transactions, err
 }
