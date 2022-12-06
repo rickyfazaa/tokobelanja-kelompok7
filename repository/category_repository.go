@@ -9,7 +9,6 @@ import (
 type CategoryRepository interface {
 	Save(category entity.Category) (entity.Category, error)
 	FindAll() ([]entity.Category, error)
-	FindAllProductsByCategoryID(id_category int) ([]entity.Product, error)
 	FindById(id_category int) (entity.Category, error)
 	Update(id_category int, category entity.Category) (entity.Category, error)
 	Delete(id_category int) error
@@ -32,12 +31,6 @@ func (r *categoryRepository) FindAll() ([]entity.Category, error) {
 	var categories []entity.Category
 	err := r.db.Find(&categories).Error
 	return categories, err
-}
-
-func (r *categoryRepository) FindAllProductsByCategoryID(id_category int) ([]entity.Product, error) {
-	var products []entity.Product
-	err := r.db.Where("category_id = ?", id_category).Find(&products).Error
-	return products, err
 }
 
 func (r *categoryRepository) FindById(id_category int) (entity.Category, error) {

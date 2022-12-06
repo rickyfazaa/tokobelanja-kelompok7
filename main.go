@@ -25,19 +25,18 @@ func main() {
 	db := config.InitDB(dbUsername, dbPassword, dbHost, dbPort, dbName)
 
 	userRepository := repository.NewUserRepository(db)
-	userService := service.NewUserService(userRepository)
-	userController := controller.NewUserController(userService)
-
 	categoryRepository := repository.NewCategoryRepository(db)
-	categoryService := service.NewCategoryService(categoryRepository)
-	categoryController := controller.NewCategoryController(categoryService)
-
 	productRepository := repository.NewProductRepository(db)
-	productService := service.NewProductService(productRepository)
-	productController := controller.NewProductController(productService)
-
 	transactionRepository := repository.NewTransactionRepository(db)
+
+	userService := service.NewUserService(userRepository)
+	categoryService := service.NewCategoryService(categoryRepository, productRepository)
+	productService := service.NewProductService(productRepository, categoryRepository)
 	transactionService := service.NewTransactionService(transactionRepository, userRepository, productRepository, categoryRepository)
+
+	userController := controller.NewUserController(userService)
+	categoryController := controller.NewCategoryController(categoryService)
+	productController := controller.NewProductController(productService)
 	transactionController := controller.NewTransactionController(transactionService)
 
 	router := gin.Default()

@@ -17,10 +17,11 @@ type CategoryService interface {
 
 type categoryService struct {
 	categoryRepository repository.CategoryRepository
+	productRepository  repository.ProductRepository
 }
 
-func NewCategoryService(categoryRepository repository.CategoryRepository) *categoryService {
-	return &categoryService{categoryRepository}
+func NewCategoryService(categoryRepository repository.CategoryRepository, productRepository repository.ProductRepository) *categoryService {
+	return &categoryService{categoryRepository, productRepository}
 }
 
 func (s *categoryService) CreateCategory(role_user string, input input.CategoryCreateInput) (entity.Category, error) {
@@ -45,7 +46,7 @@ func (s *categoryService) GetAllCategories(role_user string) ([]entity.Category,
 }
 
 func (s *categoryService) GetProductsByCategoryID(id_category int) ([]entity.Product, error) {
-	return s.categoryRepository.FindAllProductsByCategoryID(id_category)
+	return s.productRepository.FindAllByCategoryId(id_category)
 }
 
 func (s *categoryService) PatchCategory(role_user string, id_category int, input input.CategoryPatchInput) (entity.Category, error) {
