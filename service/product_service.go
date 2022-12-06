@@ -15,11 +15,12 @@ type ProductService interface {
 }
 
 type productService struct {
-	productRepository repository.ProductRepository
+	productRepository  repository.ProductRepository
+	categoryRepository repository.CategoryRepository
 }
 
-func NewProductService(productRepository repository.ProductRepository) *productService {
-	return &productService{productRepository}
+func NewProductService(productRepository repository.ProductRepository, categoryRepository repository.CategoryRepository) *productService {
+	return &productService{productRepository, categoryRepository}
 }
 
 func (s *productService) CreateProduct(role_user string, inputBody input.ProductCreateInput) (entity.Product, error) {
@@ -27,7 +28,7 @@ func (s *productService) CreateProduct(role_user string, inputBody input.Product
 		return entity.Product{}, errors.New("you are not admin")
 	}
 
-	categoryData, err := s.productRepository.FindCategoryByCategoryId(inputBody.CategoryID)
+	categoryData, err := s.categoryRepository.FindById(inputBody.CategoryID)
 	if err != nil {
 		return entity.Product{}, err
 	}
@@ -62,7 +63,7 @@ func (s *productService) UpdateProduct(role_user string, id_product int, input i
 		return entity.Product{}, errors.New("product not found")
 	}
 
-	categoryData, err := s.productRepository.FindCategoryByCategoryId(input.CategoryID)
+	categoryData, err := s.categoryRepository.FindById(input.CategoryID)
 	if err != nil {
 		return entity.Product{}, err
 	}
