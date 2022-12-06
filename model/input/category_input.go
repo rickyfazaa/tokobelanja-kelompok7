@@ -9,5 +9,5 @@ type CategoryPatchInput struct {
 }
 
 type CategoryIdUri struct {
-	ID int `uri:"id" binding:"required"`
+	ID int `uri:"productId" binding:"required"`
 }
