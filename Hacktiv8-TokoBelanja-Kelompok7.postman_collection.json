@@ -1,0 +1,1552 @@
+{
+	"info": {
+		"_postman_id": "cc8d3462-e246-42a9-9ef5-371cccab9311",
+		"name": "Hacktiv8-TokoBelanja-Kelompok7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23401248"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Admin Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"admin_1\",\r\n    \"email\": \"admin_kelompok7@gmail.com\",\r\n    \"password\": \"imadmin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/admin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Admin Register: admin_1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"admin_1\",\r\n    \"email\": \"admin_kelompok7@gmail.com\",\r\n    \"password\": \"imadmin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/admin",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"admin"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 23:57:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "244"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 1,\n        \"full_name\": \"admin_1\",\n        \"email\": \"admin_kelompok7@gmail.com\",\n        \"password\": \"$2a$04$49LeRVl8koPnuOdzyG2ibuB5TgBA5YJAbmCw2xCxTrAZgiHdzX/p2\",\n        \"balance\": 0,\n        \"created_at\": \"2022-12-07T06:57:19.581+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "User Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Alrafky Kelompok 7\",\r\n    \"email\": \"kelompok7@gmail.com\",\r\n    \"password\": \"jalanlurusambiltengah123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Register 1: Alrafky Kelompok 7",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Alrafky Kelompok 7\",\r\n    \"email\": \"kelompok7@gmail.com\",\r\n    \"password\": \"jalanlurusambiltengah123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 23:58:17 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "249"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 2,\n        \"full_name\": \"Alrafky Kelompok 7\",\n        \"email\": \"kelompok7@gmail.com\",\n        \"password\": \"$2a$04$PYoOklKjXY2hkcg9AaEXmu5P03c9KyJ0iEsmir4u1ief/S7yPluTW\",\n        \"balance\": 0,\n        \"created_at\": \"2022-12-07T06:58:17.054+07:00\"\n    }\n}"
+						},
+						{
+							"name": "User Register 2: Ricky Khairul Faza",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"full_name\": \"Ricky Khairul Faza\",\r\n    \"email\": \"the_eiza_rhitza@yahoo.com\",\r\n    \"password\": \"inipassworduntuktesting123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/register",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Dec 2022 23:59:24 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "255"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 3,\n        \"full_name\": \"Ricky Khairul Faza\",\n        \"email\": \"the_eiza_rhitza@yahoo.com\",\n        \"password\": \"$2a$04$skNPSMfi0hLTChqcH1ipJ.uMtay5QSBHF8QHnFoSJEAKzyH9JxR0y\",\n        \"balance\": 0,\n        \"created_at\": \"2022-12-07T06:59:24.963+07:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "User Login or Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"the_eiza_rhitza@yahoo.com\",\r\n    \"password\": \"inipassworduntuktesting123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Admin Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin_kelompok7@gmail.com\",\r\n    \"password\": \"imadmin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:03:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "179"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoxLCJyb2xlX3VzZXIiOiJhZG1pbiJ9.tuvJqtiluj_TOuhaW9WWqKcZYNJ0da-Bu3Wlcq1AOu0\"\n    }\n}"
+						},
+						{
+							"name": "User Login 1: Alrafky",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"kelompok7@gmail.com\",\r\n    \"password\": \"jalanlurusambiltengah123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:04:29 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoyLCJyb2xlX3VzZXIiOiJjdXN0b21lciJ9.FSoX2OtKgdTDuUbrqFuosFV8t4l2g9KKcQrUjPt7qLc\"\n    }\n}"
+						},
+						{
+							"name": "User Login 2: Ricky Khairul Faza",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"the_eiza_rhitza@yahoo.com\",\r\n    \"password\": \"inipassworduntuktesting123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/login",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:07:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjozLCJyb2xlX3VzZXIiOiJjdXN0b21lciJ9.ndVtFkG-i3c6Qj8Xar1HXkIvJ1no6bI7fcVgoHru8j8\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "User Topup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user2_tokenbearer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"balance\": 1000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/topup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"topup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Alrafky Topup Balance 500.000",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"balance\": 500000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/topup",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"topup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:10:19 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "112"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"message\": \"Your balance has been succcessfully updated to Rp 500000\"\n    }\n}"
+						},
+						{
+							"name": "Ricky Khairul Faza Topup Balance 1.000.000",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"balance\": 1000000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/topup",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"topup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:12:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"message\": \"Your balance has been succcessfully updated to Rp 1000000\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Categories (Must an Admin)",
+			"item": [
+				{
+					"name": "Category Type Post (Must an Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"Perlengakpan Sekolah\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Category Type Post: Perabotan Rumah",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"Perabotan Rumah\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:27:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 1,\n        \"type\": \"Perabotan Rumah\",\n        \"sold_product_amount\": 0,\n        \"created_at\": \"2022-12-07T07:27:56.939+07:00\"\n    }\n}"
+						},
+						{
+							"name": "Category Type Post 2: Barang Bekas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"Barang Bekas\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:27:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 2,\n        \"type\": \"Barang Bekas\",\n        \"sold_product_amount\": 0,\n        \"created_at\": \"2022-12-07T07:27:56.939+07:00\"\n    }\n}"
+						},
+						{
+							"name": "Category Type Post 3: Perlengkapan Sekolah",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"Perlengakpan Sekolah\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:51:37 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "154"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 3,\n        \"type\": \"Perlengakpan Sekolah\",\n        \"sold_product_amount\": 0,\n        \"created_at\": \"2022-12-07T07:51:37.183+07:00\"\n    }\n}"
+						},
+						{
+							"name": "Category Type Post Failed (Not an Admin)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"Barang Baru\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:30:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"you are not admin\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Show All Categories Type (Must an Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Categories Type",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:52:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1044"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"type\": \"Perabotan Rumah\",\n            \"sold_product_amount\": 0,\n            \"created_at\": \"2022-12-07T07:23:14.241+07:00\",\n            \"updated_at\": \"2022-12-07T07:23:14.241+07:00\",\n            \"Products\": [\n                {\n                    \"id\": 3,\n                    \"title\": \"Kursi Plastik Cocok Untuk Mekanik Kang Bakso\",\n                    \"price\": 50000,\n                    \"stock\": 20,\n                    \"created_at\": \"2022-12-07T07:44:00.432+07:00\",\n                    \"updated_at\": \"2022-12-07T07:44:00.432+07:00\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"type\": \"Barang Bekas\",\n            \"sold_product_amount\": 0,\n            \"created_at\": \"2022-12-07T07:27:56.939+07:00\",\n            \"updated_at\": \"2022-12-07T07:27:56.939+07:00\",\n            \"Products\": [\n                {\n                    \"id\": 1,\n                    \"title\": \"TV Bekas (karena bukan Digital)\",\n                    \"price\": 1000000,\n                    \"stock\": 10,\n                    \"created_at\": \"2022-12-07T07:37:50.326+07:00\",\n                    \"updated_at\": \"2022-12-07T07:37:50.326+07:00\"\n                },\n                {\n                    \"id\": 2,\n                    \"title\": \"Magsafe Case Apple iPhone 12 Pro\",\n                    \"price\": 200000,\n                    \"stock\": 30,\n                    \"created_at\": \"2022-12-07T07:39:56.409+07:00\",\n                    \"updated_at\": \"2022-12-07T07:39:56.409+07:00\"\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"type\": \"Perlengakpan Sekolah\",\n            \"sold_product_amount\": 0,\n            \"created_at\": \"2022-12-07T07:51:37.183+07:00\",\n            \"updated_at\": \"2022-12-07T07:51:37.183+07:00\",\n            \"Products\": []\n        }\n    ]\n}"
+						},
+						{
+							"name": "Show All Categories Type Failed (Not an Admin)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:45:40 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"you are not admin\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Category Type (Must an Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"Perabotan Rumah Tangga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/categories/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "\"Perabotan Rumah\" to \"Perabotan Rumah Tangga\"",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"Perabotan Rumah Tangga\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/categories/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:57:54 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "151"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"id\": 1,\n        \"type\": \"Perabotan Rumah Tangga\",\n        \"sold_product_amount\": 0,\n        \"updated_at\": \"2022-12-07T07:57:54.697+07:00\"\n    }\n}"
+						},
+						{
+							"name": "Update Category Type Failed (Not an Admin)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"Alat Mamah\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/categories/1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories",
+										"1"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:59:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"you are not admin\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Category Type (Must an Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user1_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/categories/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Category Type (categoryId: 3)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/categories/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 01:03:14 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "94"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"message\": \"Category has been successfully deleted\"\n    }\n}"
+						},
+						{
+							"name": "Delete Category Type Failed (Not an Admin)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/categories/3",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"categories",
+										"3"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 01:02:40 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"you are not admin\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create a Product (Must an Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Kursi Plastik Cocok Untuk Mekanik Kang Bakso\",\r\n    \"price\": 50000,\r\n    \"stock\": 20,\r\n    \"category_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Kursi Plastik",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Kursi Plastik Cocok Untuk Mekanik Kang Bakso\",\r\n    \"price\": 50000,\r\n    \"stock\": 20,\r\n    \"category_Id\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:44:00 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "196"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 3,\n        \"title\": \"Kursi Plastik Cocok Untuk Mekanik Kang Bakso\",\n        \"price\": 50000,\n        \"stock\": 20,\n        \"category_id\": 1,\n        \"created_at\": \"2022-12-07T07:44:00.432+07:00\"\n    }\n}"
+						},
+						{
+							"name": "TV Bekas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"TV Bekas (karena bukan Digital)\",\r\n    \"price\": 1000000,\r\n    \"stock\": 10,\r\n    \"category_Id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:37:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 1,\n        \"title\": \"TV Bekas (karena bukan Digital)\",\n        \"price\": 1000000,\n        \"stock\": 10,\n        \"category_id\": 2,\n        \"created_at\": \"2022-12-07T07:37:50.326+07:00\"\n    }\n}"
+						},
+						{
+							"name": "Magsafe Case Apple iPhone 12 Pro",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Magsafe Case Apple iPhone 12 Pro\",\r\n    \"price\": 200000,\r\n    \"stock\": 30,\r\n    \"category_Id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 00:39:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "185"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 2,\n        \"title\": \"Magsafe Case Apple iPhone 12 Pro\",\n        \"price\": 200000,\n        \"stock\": 30,\n        \"category_id\": 2,\n        \"created_at\": \"2022-12-07T07:39:56.409+07:00\"\n    }\n}"
+						},
+						{
+							"name": "Gigi Emas (For Delete Soon)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Gigi Emas\",\r\n    \"price\": 1000000,\r\n    \"stock\": 32,\r\n    \"category_Id\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 01:23:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "162"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": 4,\n        \"title\": \"Gigi Emas\",\n        \"price\": 1000000,\n        \"stock\": 32,\n        \"category_id\": 1,\n        \"created_at\": \"2022-12-07T08:23:21.11+07:00\"\n    }\n}"
+						},
+						{
+							"name": "Create a Product Failed (Not an Admin)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Jam Dinding\",\r\n    \"price\": 100000,\r\n    \"stock\": 25,\r\n    \"category_Id\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 01:07:23 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"you are not admin\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Show All Products (Bearer Token Required)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show All Products (Admin Token)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 01:12:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "471"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"TV Bekas (karena bukan Digital)\",\n            \"price\": 1000000,\n            \"stock\": 10,\n            \"category_id\": 2,\n            \"created_at\": \"2022-12-07T07:37:50.326+07:00\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Magsafe Case Apple iPhone 12 Pro\",\n            \"price\": 200000,\n            \"stock\": 30,\n            \"category_id\": 2,\n            \"created_at\": \"2022-12-07T07:39:56.409+07:00\"\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Kursi Plastik Cocok Untuk Mekanik Kang Bakso\",\n            \"price\": 50000,\n            \"stock\": 20,\n            \"category_id\": 1,\n            \"created_at\": \"2022-12-07T07:44:00.432+07:00\"\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Gigi Emas\",\n            \"price\": 1000000,\n            \"stock\": 32,\n            \"category_id\": 1,\n            \"created_at\": \"2022-12-07T08:23:21.11+07:00\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Show All Products (User Token)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/products",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 01:12:53 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "471"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"TV Bekas (karena bukan Digital)\",\n            \"price\": 1000000,\n            \"stock\": 10,\n            \"category_id\": 2,\n            \"created_at\": \"2022-12-07T07:37:50.326+07:00\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Magsafe Case Apple iPhone 12 Pro\",\n            \"price\": 200000,\n            \"stock\": 30,\n            \"category_id\": 2,\n            \"created_at\": \"2022-12-07T07:39:56.409+07:00\"\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Kursi Plastik Cocok Untuk Mekanik Kang Bakso\",\n            \"price\": 50000,\n            \"stock\": 20,\n            \"category_id\": 1,\n            \"created_at\": \"2022-12-07T07:44:00.432+07:00\"\n        },\n        {\n            \"id\": 4,\n            \"title\": \"Gigi Emas\",\n            \"price\": 1000000,\n            \"stock\": 32,\n            \"category_id\": 1,\n            \"created_at\": \"2022-12-07T08:23:21.11+07:00\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Magsafe Case Apple iPhone 12 Pro Max\",\r\n    \"price\": 250000,\r\n    \"stock\": 35,\r\n    \"category_Id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/products/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "\"Magsafe Case Apple iPhone 12 Pro\" to \"Magsafe Case Apple iPhone 12 Pro Max\"",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Magsafe Case Apple iPhone 12 Pro Max\",\r\n    \"price\": 250000,\r\n    \"stock\": 35,\r\n    \"category_Id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 01:25:55 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "248"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"product\": {\n            \"id\": 2,\n            \"title\": \"Magsafe Case Apple iPhone 12 Pro Max\",\n            \"price\": \"Rp. 250.000\",\n            \"stock\": 35,\n            \"category_id\": 2,\n            \"created_at\": \"2022-12-07T07:39:56.409+07:00\",\n            \"updated_at\": \"2022-12-07T08:25:55.573+07:00\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Update Product Failed (Not an Admin)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Magsafe Case Apple iPhone 12 Pro-kontra\",\r\n    \"price\": 250000,\r\n    \"stock\": 35,\r\n    \"category_Id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products/2",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"2"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Dec 2022 01:28:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"you are not admin\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/products/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TransactionHistory",
+			"item": []
+		}
+	]
+}

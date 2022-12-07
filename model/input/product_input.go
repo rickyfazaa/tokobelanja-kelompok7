@@ -15,5 +15,5 @@ type ProductUpdateInput struct {
 }
 
 type ProductIdUri struct {
-	ID int `uri:"id" binding:"required"`
+	ID int `uri:"productId" binding:"required"`
 }

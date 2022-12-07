@@ -51,14 +51,14 @@ func main() {
 	// Categories
 	router.POST("/categories", middleware.AuthMiddleware, categoryController.CreateCategory)
 	router.GET("/categories", middleware.AuthMiddleware, categoryController.GetAllCategories)
-	router.PATCH("/categories/:id", middleware.AuthMiddleware, categoryController.PatchCategory)
-	router.DELETE("/categories/:id", middleware.AuthMiddleware, categoryController.DeleteCategory)
+	router.PATCH("/categories/:categoryId", middleware.AuthMiddleware, categoryController.PatchCategory)
+	router.DELETE("/categories/:categoryId", middleware.AuthMiddleware, categoryController.DeleteCategory)
 
 	// Products
 	router.POST("/products", middleware.AuthMiddleware, productController.CreateProduct)
 	router.GET("/products", middleware.AuthMiddleware, productController.GetAllProducts)
-	router.PUT("/products/:id", middleware.AuthMiddleware, productController.UpdateProduct)
-	router.DELETE("/products/:id", middleware.AuthMiddleware, productController.DeleteProduct)
+	router.PUT("/products/:productId", middleware.AuthMiddleware, productController.UpdateProduct)
+	router.DELETE("/products/:productId", middleware.AuthMiddleware, productController.DeleteProduct)
 
 	// TransactionHistories
 	router.POST("/transactions", middleware.AuthMiddleware, transactionController.CreateTransaction)
