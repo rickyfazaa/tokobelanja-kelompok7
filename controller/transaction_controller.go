@@ -52,7 +52,7 @@ func (h *transactionController) CreateTransaction(c *gin.Context) {
 	}
 
 	transactionResponse := response.TransactionHistoryCreateResponse{
-		Message: "Transaction Success",
+		Message: "You have succesfully purchased the product",
 		TransactionBill: response.TransactionBill{
 			TotalPrice:   transactionData.TotalPrice,
 			Quantity:     transactionData.Quantity,

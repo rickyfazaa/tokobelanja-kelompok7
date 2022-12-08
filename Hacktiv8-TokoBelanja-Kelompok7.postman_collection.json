@@ -1911,7 +1911,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"message\": \"Transaction Success\",\n        \"transaction_bill\": {\n            \"total_price\": 1000000,\n            \"quantity\": 1,\n            \"product_title\": \"TV Bekas (karena bukan Digital)\"\n        }\n    }\n}"
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"message\": \"You have succesfully purchased the product\",\n        \"transaction_bill\": {\n            \"total_price\": 1000000,\n            \"quantity\": 1,\n            \"product_title\": \"TV Bekas (karena bukan Digital)\"\n        }\n    }\n}"
 						}
 					]
 				},
