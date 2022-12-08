@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "cc8d3462-e246-42a9-9ef5-371cccab9311",
 		"name": "Hacktiv8-TokoBelanja-Kelompok7",
+		"description": "Aplikasi Toko Belanja",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "23401248"
 	},
@@ -32,7 +33,8 @@
 								"users",
 								"admin"
 							]
-						}
+						},
+						"description": "This API allows you to create an admin account."
 					},
 					"response": [
 						{
@@ -50,10 +52,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/users/admin",
+									"raw": "http://localhost:8080/users/admin",
+									"protocol": "http",
 									"host": [
-										"{{host}}"
+										"localhost"
 									],
+									"port": "8080",
 									"path": [
 										"users",
 										"admin"
@@ -105,7 +109,8 @@
 								"users",
 								"register"
 							]
-						}
+						},
+						"description": "This API allows you to create an user account."
 					},
 					"response": [
 						{
@@ -123,10 +128,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/users/register",
+									"raw": "http://localhost:8080/users/register",
+									"protocol": "http",
 									"host": [
-										"{{host}}"
+										"localhost"
 									],
+									"port": "8080",
 									"path": [
 										"users",
 										"register"
@@ -223,7 +230,8 @@
 								"users",
 								"login"
 							]
-						}
+						},
+						"description": "This API allows you to login with user account or admin account using email and password."
 					},
 					"response": [
 						{
@@ -241,10 +249,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/users/login",
+									"raw": "http://localhost:8080/users/login",
+									"protocol": "http",
 									"host": [
-										"{{host}}"
+										"localhost"
 									],
+									"port": "8080",
 									"path": [
 										"users",
 										"login"
@@ -396,7 +406,8 @@
 								"users",
 								"topup"
 							]
-						}
+						},
+						"description": "This API allows you to top up some balance to account."
 					},
 					"response": [
 						{
@@ -414,10 +425,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/users/topup",
+									"raw": "http://localhost:8080/users/topup",
+									"protocol": "http",
 									"host": [
-										"{{host}}"
+										"localhost"
 									],
+									"port": "8080",
 									"path": [
 										"users",
 										"topup"
@@ -536,7 +549,8 @@
 						}
 					]
 				}
-			]
+			],
+			"description": "User CRUD folder."
 		},
 		{
 			"name": "Categories (Must an Admin)",
@@ -573,7 +587,8 @@
 							"path": [
 								"categories"
 							]
-						}
+						},
+						"description": "This API allows you to post new categories type."
 					},
 					"response": [
 						{
@@ -591,10 +606,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/categories",
+									"raw": "http://localhost:8080/categories",
+									"protocol": "http",
 									"host": [
-										"{{host}}"
+										"localhost"
 									],
+									"port": "8080",
 									"path": [
 										"categories"
 									]
@@ -777,7 +794,8 @@
 							"path": [
 								"categories"
 							]
-						}
+						},
+						"description": "This API allows you to show all categories types."
 					},
 					"response": [
 						{
@@ -885,7 +903,8 @@
 								"categories",
 								"1"
 							]
-						}
+						},
+						"description": "This API allows you to change or update categories type."
 					},
 					"response": [
 						{
@@ -1004,7 +1023,8 @@
 								"categories",
 								"3"
 							]
-						}
+						},
+						"description": "This API allows you to delete categories type."
 					},
 					"response": [
 						{
@@ -1081,7 +1101,8 @@
 						}
 					]
 				}
-			]
+			],
+			"description": "Categories CRUD folder (All endpoint required an Admin level)."
 		},
 		{
 			"name": "Product",
@@ -1118,7 +1139,8 @@
 							"path": [
 								"products"
 							]
-						}
+						},
+						"description": "This API allows you to create a product (Must an Admin)."
 					},
 					"response": [
 						{
@@ -1366,7 +1388,8 @@
 							"path": [
 								"products"
 							]
-						}
+						},
+						"description": "This API allows you to show all products."
 					},
 					"response": [
 						{
@@ -1442,7 +1465,7 @@
 					]
 				},
 				{
-					"name": "Update Product",
+					"name": "Update Product (Must an Admin)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1474,7 +1497,8 @@
 								"products",
 								"2"
 							]
-						}
+						},
+						"description": "This API allows you to update or make a new product (Must an Admin)."
 					},
 					"response": [
 						{
@@ -1570,7 +1594,7 @@
 					]
 				},
 				{
-					"name": "Delete Product",
+					"name": "Delete Product (Must an Admin)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1593,7 +1617,8 @@
 								"products",
 								"4"
 							]
-						}
+						},
+						"description": "This API allows you to delete a product (Must an Admin)."
 					},
 					"response": [
 						{
@@ -1670,7 +1695,8 @@
 						}
 					]
 				}
-			]
+			],
+			"description": "Product CRUD folder."
 		},
 		{
 			"name": "TransactionHistory",
@@ -1707,7 +1733,8 @@
 							"path": [
 								"transactions"
 							]
-						}
+						},
+						"description": "This API allows you (user) to buy some products."
 					},
 					"response": [
 						{
@@ -1912,7 +1939,8 @@
 								"transactions",
 								"my-transactions"
 							]
-						}
+						},
+						"description": "This API allows you (user) to see your own transactions history."
 					},
 					"response": [
 						{
@@ -2013,7 +2041,8 @@
 								"transactions",
 								"user-transactions"
 							]
-						}
+						},
+						"description": "This API allows you to show all user transactions history (must an admin)."
 					},
 					"response": [
 						{
@@ -2090,7 +2119,8 @@
 						}
 					]
 				}
-			]
+			],
+			"description": "Transactions History folder."
 		}
 	]
 }
