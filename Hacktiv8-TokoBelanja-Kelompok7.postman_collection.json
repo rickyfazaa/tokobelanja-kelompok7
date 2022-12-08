@@ -371,7 +371,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{user2_tokenbearer}}",
+									"value": "{{user2_bearertoken}}",
 									"type": "string"
 								}
 							]
@@ -380,7 +380,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"balance\": 1000000\r\n}",
+							"raw": "{\r\n    \"balance\": 5000000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -400,7 +400,7 @@
 					},
 					"response": [
 						{
-							"name": "Alrafky Topup Balance 500.000",
+							"name": "User 1: Alrafky Topup Balance 500.000",
 							"originalRequest": {
 								"method": "PATCH",
 								"header": [],
@@ -445,7 +445,7 @@
 							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"message\": \"Your balance has been succcessfully updated to Rp 500000\"\n    }\n}"
 						},
 						{
-							"name": "Ricky Khairul Faza Topup Balance 1.000.000",
+							"name": "User 2: Ricky Khairul Faza Topup Balance 1.000.000",
 							"originalRequest": {
 								"method": "PATCH",
 								"header": [],
@@ -488,6 +488,51 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"message\": \"Your balance has been succcessfully updated to Rp 1000000\"\n    }\n}"
+						},
+						{
+							"name": "User 2: Ricky Khairul Faza Topup Balance 5.000.000 (now 6.000.000)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"balance\": 5000000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/users/topup",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"users",
+										"topup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:26:39 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "113"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"message\": \"Your balance has been succcessfully updated to Rp 6000000\"\n    }\n}"
 						}
 					]
 				}
@@ -736,7 +781,7 @@
 					},
 					"response": [
 						{
-							"name": "All Categories Type",
+							"name": "z",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -943,7 +988,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{user1_bearertoken}}",
+									"value": "{{admin_bearertoken}}",
 									"type": "string"
 								}
 							]
@@ -963,7 +1008,7 @@
 					},
 					"response": [
 						{
-							"name": "Delete Category Type (categoryId: 3)",
+							"name": "Delete Category Type (categoryId: 3 [Perlengakpan Sekolah])",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -1527,6 +1572,16 @@
 				{
 					"name": "Delete Product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -1540,13 +1595,502 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete Product (productId: 4 [Gigi Emas])",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/products/4",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:20:23 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": {\n        \"message\": \"Product has been successfully deleted\"\n    }\n}"
+						},
+						{
+							"name": "Delete Product Failed (Not an Admin)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/products/4",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"4"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:19:28 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"you are not admin\"\n}"
+						}
+					]
 				}
 			]
 		},
 		{
 			"name": "TransactionHistory",
-			"item": []
+			"item": [
+				{
+					"name": "Buy some Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user2_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\": 1,\r\n    \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/transactions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User 1 Buying Failed: balance not enough (Balance: 500.000, Price:1.000.000)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\": 1,\r\n    \"quantity\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:30:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"balance not enough\"\n}"
+						},
+						{
+							"name": "User 1 Buying Failed: product not found (productId: 5)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\": 5,\r\n    \"quantity\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:32:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"product not found\"\n}"
+						},
+						{
+							"name": "User 1 Buying Failed: stock not enough (Buying Stock 30, Product Stock: 20 only)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\": 3,\r\n    \"quantity\": 30\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:34:12 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"stock not enough\"\n}"
+						},
+						{
+							"name": "User 2 Buying Success: TV Bekas, Price:1.000.000 (Balance 6.000.000), Quantity:1 (Stock:10)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\": 1,\r\n    \"quantity\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:37:33 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "186"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 201,\n    \"message\": \"created\",\n    \"data\": {\n        \"message\": \"Transaction Success\",\n        \"transaction_bill\": {\n            \"total_price\": 1000000,\n            \"quantity\": 1,\n            \"product_title\": \"TV Bekas (karena bukan Digital)\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Transactions History",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user1_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/transactions/my-transactions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transactions",
+								"my-transactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User 1 (Alrafky) Transactions History (Never buying anythings)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/transactions/my-transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions",
+										"my-transactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:42:52 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "User 2 (Ricky Khairul Faza) Transactions History",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/transactions/my-transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions",
+										"my-transactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:41:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "307"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"product_id\": 1,\n            \"user_id\": 3,\n            \"quantity\": 1,\n            \"total_price\": 1000000,\n            \"Product\": {\n                \"id\": 1,\n                \"title\": \"TV Bekas (karena bukan Digital)\",\n                \"price\": 1000000,\n                \"stock\": 9,\n                \"category_id\": 2,\n                \"created_at\": \"2022-12-07T07:37:50.326+07:00\",\n                \"updated_at\": \"2022-12-08T09:37:33.332+07:00\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Show All User Transactions History (Must an Admin)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_bearertoken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/transactions/user-transactions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"transactions",
+								"user-transactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All User Transactions History (by: admin_1)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/transactions/user-transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions",
+										"user-transactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:46:22 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "500"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 200,\n    \"message\": \"ok\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"product_id\": 1,\n            \"user_id\": 3,\n            \"quantity\": 1,\n            \"total_price\": 1000000,\n            \"Product\": {\n                \"id\": 1,\n                \"title\": \"TV Bekas (karena bukan Digital)\",\n                \"price\": 1000000,\n                \"stock\": 9,\n                \"category_id\": 2,\n                \"created_at\": \"2022-12-07T07:37:50.326+07:00\",\n                \"updated_at\": \"2022-12-08T09:37:33.332+07:00\"\n            },\n            \"User\": {\n                \"id\": 3,\n                \"email\": \"the_eiza_rhitza@yahoo.com\",\n                \"full_name\": \"Ricky Khairul Faza\",\n                \"balance\": 5000000,\n                \"created_at\": \"2022-12-07T06:59:24.963+07:00\",\n                \"updated_at\": \"2022-12-08T09:37:33.335+07:00\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "Show All User Transactions History Failed (Not an Admin)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/transactions/user-transactions",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"transactions",
+										"user-transactions"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Dec 2022 02:45:01 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status_code\": 422,\n    \"message\": \"failed\",\n    \"errors\": \"you are not admin\"\n}"
+						}
+					]
+				}
+			]
 		}
 	]
 }
