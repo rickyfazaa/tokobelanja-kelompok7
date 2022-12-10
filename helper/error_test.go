@@ -8,11 +8,11 @@ import (
 )
 
 var (
-	err = errors.New("you are not admin")
+	err = errors.New("You are not admin")
 )
 
 func TestGetErrorData(t *testing.T) {
-	expected := "you are not admin"
+	expected := "You are not admin"
 
 	result := GetErrorData(err)
 
