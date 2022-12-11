@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewResponse(t *testing.T) {
+func TestNewResponseOK(t *testing.T) {
 	expected := Response{
 		StatusCode: 200,
 		Message:    "ok",
@@ -14,6 +14,18 @@ func TestNewResponse(t *testing.T) {
 	}
 
 	result := NewResponse(200, "ok", nil)
+
+	assert.Equal(t, expected, result)
+}
+
+func TestNewResponseCreated(t *testing.T) {
+	expected := Response{
+		StatusCode: 201,
+		Message:    "created",
+		Data:       nil,
+	}
+
+	result := NewResponse(201, "created", nil)
 
 	assert.Equal(t, expected, result)
 }
